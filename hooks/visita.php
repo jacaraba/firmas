@@ -76,10 +76,22 @@
 
 	function visita_before_insert(&$data, $memberInfo, &$args) {
 
+
 		return TRUE;
 	}
 
 	function visita_after_insert($data, $memberInfo, &$args) {
+
+		ob_start(); ?>
+		
+		<script>
+		 window.AppInventor.setWebViewString("hello from Javascript");	
+		</script>
+		
+		<?php
+		$form_code = ob_get_contents();
+		ob_end_clean();
+		$html .= $form_code;
 
 		return TRUE;
 	}
