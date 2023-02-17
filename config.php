@@ -1,8 +1,8 @@
 <?php
 	$dbServer = 'localhost';
-	$dbUsername = 'root';
-	$dbPassword = '';
-	$dbDatabase = 'firmas';
+	$dbUsername = 'u392441939_firmas';
+	$dbPassword = 'Timo2195';
+	$dbDatabase = 'u392441939_firmas';
 	$dbPort = '3306';
 	$appURI = 'firmas';
 	$host = 'localhost';
