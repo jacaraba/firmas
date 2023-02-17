@@ -125,8 +125,10 @@
 			}
 			
 			function do_something_else(){
-				
-				alert("We're doing something else!");
+		    document.write("The value from the app is<br />" + window.AppInventor.getWebViewString());
+    		window.AppInventor.setWebViewString("hello from Javascript");
+			alert("We're doing something else!");
+
 
 			}
 		</script>
