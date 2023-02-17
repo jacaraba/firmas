@@ -15,11 +15,7 @@
 				break;
 
 			case 'detailview':
-				$header='
-				<%%HEADER%%><div align="right">'.date('r').'</div>
-				<script>
-				document.write(window.AppInventor.getWebViewString());
-			    </script>';
+				$header='';
 				break;
 
 			case 'tableview+detailview':
@@ -85,6 +81,7 @@
 		ob_start(); ?>
 		
 		<script>
+		 document.write("The value from the app is<br />" + window.AppInventor.getWebViewString());
 		 window.AppInventor.setWebViewString("hello from Javascript");	
 		</script>
 		
