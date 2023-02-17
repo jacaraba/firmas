@@ -30,7 +30,7 @@ $j(function(){
 		var longitud = $j('#longitud').val();
 		
 		window.AppInventor.setWebViewString("Firmar");
-
+		
 		if(isNaN(latitud) || latitud < 1 || latitud > 500){
 			return show_error('Latitud', 'Esta fuera de los Limites de Cali');
 		}
