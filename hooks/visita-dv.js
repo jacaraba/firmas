@@ -18,7 +18,7 @@ $j(function(){
 		var longitud = $j('#longitud').val();
 	
 		if(isNaN(latitud) || latitud < 1 || latitud > 500){
-			return show_error('Latitud', 'hola');
+			return show_error('Latitud', 'Esta fuera de los Limites de Cali');
 		}
 
 		if(isNaN(longitud) || longitud < 1 || longitud > 500){
