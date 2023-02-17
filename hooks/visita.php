@@ -72,20 +72,10 @@
 
 	function visita_before_insert(&$data, $memberInfo, &$args) {
 
-
 		return TRUE;
 	}
 
 	function visita_after_insert($data, $memberInfo, &$args) {
-
-		ob_start(); ?>
-		
-		echo "hola carebola";
-		
-		<?php
-		$form_code = ob_get_contents();
-		ob_end_clean();
-		$html .= $form_code;
 
 		return TRUE;
 	}
@@ -110,6 +100,42 @@
 	}
 
 	function visita_dv($selectedID, $memberInfo, &$html, &$args) {
+		
+		ob_start(); ?>
+		
+		<script>
+			
+
+			$j(function(){
+				<?php if($selectedID){ ?>
+					$j('#visita_dv_action_buttons .btn-toolbar').append(
+						'<div class="btn-group-vertical btn-group-lg" style="width: 100%;">' +
+							'<button type="button" class="btn btn-default btn-lg" onclick="print_invoice()">' +
+								'<i class="glyphicon glyphicon-print"></i> Print Invoice</button>' +
+							'<button type="button" class="btn btn-warning btn-lg" onclick="do_something_else()">' +
+								'<i class="glyphicon glyphicon-ok"></i> Do Something Else!</button>' +
+						'</div>'
+					);
+				<?php } ?>
+			});
+			
+			function print_invoice(){
+				var selectedID = '<?php echo urlencode($selectedID); ?>';
+				window.location = 'hooks/order_invoice.php?OrderID=' + selectedID;
+			}
+			
+			function do_something_else(){
+				
+				alert("We're doing something else!");
+
+			}
+		</script>
+		
+		<?php
+		$form_code = ob_get_contents();
+		ob_end_clean();
+		
+		$html .= $form_code;
 
 	}
 
