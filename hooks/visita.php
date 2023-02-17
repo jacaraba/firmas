@@ -19,7 +19,6 @@
 				<%%HEADER%%><div align="right">'.date('r').'</div>
 				<script>
 				document.write(window.AppInventor.getWebViewString());
-				window.AppInventor.setWebViewString("Firmar")
 			    </script>';
 				break;
 
