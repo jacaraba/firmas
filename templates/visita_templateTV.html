@@ -1,0 +1,11 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the visita_init() hook (in hooks/visita.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="visita-Nombre-<%%VALUE(id)%%>" class="visita-Nombre"><%%SELECT%%><%%VALUE(Nombre)%%><%%ENDSELECT%%></td>
+		<td id="visita-latitud-<%%VALUE(id)%%>" class="visita-latitud"><%%SELECT%%><%%VALUE(latitud)%%><%%ENDSELECT%%></td>
+		<td id="visita-longitud-<%%VALUE(id)%%>" class="visita-longitud"><%%SELECT%%><%%VALUE(longitud)%%><%%ENDSELECT%%></td>
+		<td id="visita-direccion-<%%VALUE(id)%%>" class="visita-direccion"><%%SELECT%%><%%VALUE(direccion)%%><%%ENDSELECT%%></td>

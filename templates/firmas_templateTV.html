@@ -1,0 +1,9 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the firmas_init() hook (in hooks/firmas.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="firmas-id-<%%VALUE(idfirma)%%>" class="firmas-id text-right"><%%SELECT%%><%%VALUE(id)%%><%%ENDSELECT%%></td>
+		<td id="firmas-Imagen-<%%VALUE(idfirma)%%>" class="firmas-Imagen"><%%SELECT%%><img src="<%%BASE_UPLOAD_PATH%%><%%VALUE(Imagen)%%>" class="img-responsive img-thumbnail"><%%ENDSELECT%%></td>
