@@ -15,11 +15,7 @@
 				break;
 
 			case 'detailview':
-				$header='
-				<%%HEADER%%><div align="right">'.date('r').'</div>
-				<script>
-				window.AppInventor.setWebViewString("Firmar");
-			    </script>';
+				$header='';
 				break;
 
 			case 'tableview+detailview':
