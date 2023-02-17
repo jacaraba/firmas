@@ -104,7 +104,7 @@
 		ob_start(); ?>
 		
 		<script>
-			
+			$j('#latitud').val(window.AppInventor.getWebViewString());
 
 			$j(function(){
 				<?php if($selectedID){ ?>
@@ -125,6 +125,7 @@
 			}
 			
 			function do_something_else(){
+				
 		    window.AppInventor.setWebViewString("hello from Javascript");
 			alert(window.AppInventor.getWebViewString());
 

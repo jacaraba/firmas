@@ -1,4 +1,5 @@
 function show_error(field, msg){
+	
 	modal_window({
 		message: '<div class="alert alert-danger">' + msg + '</div>',
 		title: 'Error in ' + field,
@@ -18,6 +19,7 @@ $j(function(){
 		var longitud = $j('#longitud').val();
 	
 		if(isNaN(latitud) || latitud < 1 || latitud > 500){
+			
 			return show_error('Latitud', 'Esta fuera de los Limites de Cali');
 		}
 
