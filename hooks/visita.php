@@ -104,7 +104,12 @@
 		ob_start(); ?>
 		
 		<script>
-			var hola = "hporque";
+			
+			var json = '{"result":true, "count":42}';
+			var obj = JSON.parse(json);
+
+			$j('#latitud').val(l.latitud);
+			$j('#longitud').val(obj.count);
 
 			$j(function(){
 				<?php if($selectedID){ ?>
