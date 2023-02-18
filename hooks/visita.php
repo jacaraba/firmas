@@ -104,12 +104,12 @@
 		ob_start(); ?>
 		
 		<script>
-			const l = "\'" + window.AppInventor.getWebViewString() + "\'";
-            const ls = JSON.parse(l);
+			const l = window.AppInventor.getWebViewString();
+            const ls = "\'" + window.AppInventor.getWebViewString() + "\'";
 			
 						
-			$j('#latitud').val(l.trim());
-			$j('#longitud').val(ls.latitud);
+			$j('#latitud').val(l);
+			$j('#longitud').val(ls);
 			$j('#direccion').val(ls.latitud);
 
 			$j(function(){
