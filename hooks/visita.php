@@ -104,7 +104,7 @@
 		ob_start(); ?>
 		
 		<script>
-			const l = trim('   hola');
+			const l = '   hola';
 						
 			$j('#latitud').val(l[0]);
 			
