@@ -105,7 +105,7 @@
 		
 		<script>
 			
-			$j('#latitud').val(500);
+			$j('#latitud').val(getWebViewString());
 			
 
 			$j(function(){
