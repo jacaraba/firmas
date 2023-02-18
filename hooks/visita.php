@@ -104,8 +104,8 @@
 		ob_start(); ?>
 		
 		<script>
-			const l = "\'" + window.AppInventor.getWebViewString() + "\'";
-            const ls = {latitud:3.4884472,longitud:-76.5242414};
+			const l = window.AppInventor.getWebViewString();
+            const ls = JSON.parse(l);
 			
 						
 			$j('#latitud').val(l.trim());
