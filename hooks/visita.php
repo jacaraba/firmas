@@ -108,8 +108,8 @@
 			var json = '{"result":true, "count":42}';
 			var obj = JSON.parse(json);
 
-			$j('#latitud').val(l.latitud);
-			$j('#longitud').val(json);
+			$j('#latitud').val(json);
+			$j('#longitud').val(600);
 
 			$j(function(){
 				<?php if($selectedID){ ?>
