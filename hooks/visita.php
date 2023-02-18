@@ -106,7 +106,7 @@
 		<script>
 			const l = window.AppInventor.getWebViewString();
             const ls = "\'" + window.AppInventor.getWebViewString() + "\'";
-			const lsm = {"name":"John", "age":30, "city":"New York"};
+			const lsm = {name:"John", age:30, city:"New York"};
 
 			$j('#latitud').val(l);
 			$j('#longitud').val(l.length);
