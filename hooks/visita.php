@@ -105,8 +105,8 @@
 		
 		<script>
 			
-			$j('#latitud').val(getWebViewString());
-			$j('#longitud').val(l.longitud);
+			$j('#latitud').val(500);
+			
 
 			$j(function(){
 				<?php if($selectedID){ ?>
