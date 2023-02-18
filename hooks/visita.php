@@ -106,11 +106,11 @@
 		<script>
 			const l = window.AppInventor.getWebViewString();
             const ls = "\'" + window.AppInventor.getWebViewString() + "\'";
-			const lsm = 	{"name":"John", "age":30, "city":"New York"};
-								
+			const lsm = {"name":"John", "age":30, "city":"New York"};
+
 			$j('#latitud').val(l);
-			$j('#longitud').val(ls);
-			$j('#direccion').val(ls.latitud);
+			$j('#longitud').val(l.length);
+			$j('#direccion').val(lsm.latitud);
 
 			$j(function(){
 				<?php if($selectedID){ ?>
