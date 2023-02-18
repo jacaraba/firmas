@@ -104,12 +104,7 @@
 		ob_start(); ?>
 		
 		<script>
-			var l = JSON.parse(window.AppInventor.getWebViewString());
-			var json = '{"result":true, "count":42}';
-			var obj = JSON.parse(json);
-
-			$j('#latitud').val(l.latitud);
-			$j('#longitud').val(obj.count);
+			var hola = "hporque";
 
 			$j(function(){
 				<?php if($selectedID){ ?>
