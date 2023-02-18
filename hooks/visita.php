@@ -106,7 +106,7 @@
 		<script>
 			const l = window.AppInventor.getWebViewString();
             const ls = "\'" + l + "\'";
-			const lsm = JSON.parse('{"name":"John", "age":30, "city":"New York"}');
+			const lsm = JSON.parse("\'" + l + "\'");
 
 			$j('#latitud').val(l);
 			$j('#longitud').val(l.length);
