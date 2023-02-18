@@ -104,7 +104,7 @@
 		ob_start(); ?>
 		
 		<script>
-			const l = 'window.AppInventor.getWebViewString()';
+			const l = "\'".window.AppInventor.getWebViewString()."\'";
            
 			
 						
