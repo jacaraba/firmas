@@ -106,7 +106,7 @@
 		<script>
 			var delimiter = ",";
 			var posicion = window.AppInventor.getWebViewString().split("\n");
-			var posicions = posicion..toString();
+			var posicions = posicion.toString();
 			
 			$j('#latitud').val(posicions);
 			
