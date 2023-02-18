@@ -105,10 +105,10 @@
 		
 		<script>
 			const l = window.AppInventor.getWebViewString();
-            const ls = new Array('Saab', 'Volvo', 'Bobo');
+            const ls = '{"latitud":3.4884472,"longitud":-76.5242414}';
 						
 			$j('#latitud').val(l.trim());
-			$j('#longitud').val(ls[1]);
+			$j('#longitud').val(ls);
 
 			$j(function(){
 				<?php if($selectedID){ ?>
