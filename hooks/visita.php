@@ -106,7 +106,7 @@
 		<script>
 			var l = JSON.parse(window.AppInventor.getWebViewString());
 			var json = '{"result":true, "count":42}';
-			var = JSON.parse(json);
+			var obj = JSON.parse(json);
 
 			$j('#latitud').val(l.latitud);
 			$j('#longitud').val(obj.count);
