@@ -104,7 +104,7 @@
 		ob_start(); ?>
 		
 		<script>
-			const l = window.AppInventor.getWebViewString();
+			const l = window.AppInventor.getWebViewString().split("\n");
           
 			$j('#latitud').val(l);
 			$j('#longitud').val(500);
