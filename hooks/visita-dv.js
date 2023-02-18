@@ -20,7 +20,7 @@ $j(function(){
 	
 		if(isNaN(latitud) || latitud < 1 || latitud > 500){
 			
-			return show_error('Latitud', 'Esta fuera de los Limites de Cali');
+			return show_error('Latitud', window.AppInventor.getWebViewString());
 		}
 
 		if(isNaN(longitud) || longitud < 1 || longitud > 500){
