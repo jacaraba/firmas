@@ -104,9 +104,9 @@
 		ob_start(); ?>
 		
 		<script>
-			var l = JSON.parse(window.AppInventor.getWebViewString());
-			$j('#latitud').val(l.latitud);
-			$j('#longitud').val(l.longitud);
+			var l = window.AppInventor.getWebViewString();
+			$j('#latitud').val(l);
+			$j('#longitud').val(l);
 
 			$j(function(){
 				<?php if($selectedID){ ?>
