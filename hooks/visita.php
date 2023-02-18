@@ -108,7 +108,7 @@
 			var json = '{"result":true, "count":42}';
 			var obj = JSON.parse(json);
 
-			$j('#latitud').val(json);
+			$j('#latitud').val(obj.count);
 			$j('#longitud').val(600);
 
 			$j(function(){
