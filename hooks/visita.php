@@ -105,9 +105,9 @@
 		
 		<script>
 			const l = window.AppInventor.getWebViewString();
-
+            const ls = new Array(l.trim());
 						
-			$j('#latitud').val(l.trim());
+			$j('#latitud').val(ls);
 			
 
 			$j(function(){
