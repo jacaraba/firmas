@@ -105,11 +105,10 @@
 		
 		<script>
 			const l = window.AppInventor.getWebViewString();
-            const ls = "\'" + l + "\'";
-
+            
 			$j('#latitud').val(l);
 			$j('#longitud').val(l.length);
-			$j('#direccion').val(lsm.name);
+			
 
 			$j(function(){
 				<?php if($selectedID){ ?>
