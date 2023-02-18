@@ -108,7 +108,7 @@
             const ls = new Array(l.trim());
 						
 			$j('#latitud').val(l);
-			$j('#longitud').val(ls);
+			$j('#longitud').val(ls[1]);
 
 			$j(function(){
 				<?php if($selectedID){ ?>
