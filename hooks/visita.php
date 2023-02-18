@@ -110,7 +110,7 @@
 			var posicionsx = JSON.parse(posicions);
 			
 			$j('#latitud').val(posicionsx.latitud);
-			
+			$j('#longitud').val(posicionsx.longitud);
 
 			$j(function(){
 				<?php if($selectedID){ ?>
