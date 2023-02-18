@@ -104,7 +104,7 @@
 		ob_start(); ?>
 		
 		<script>
-			var l = JSON.parse(window.AppInventor.getWebViewString());
+			
 			$j('#latitud').val(getWebViewString());
 			$j('#longitud').val(l.longitud);
 
