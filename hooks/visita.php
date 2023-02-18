@@ -110,7 +110,7 @@
 
 			$j('#latitud').val(l);
 			$j('#longitud').val(l.length);
-			$j('#direccion').val(lsm.name);
+			$j('#direccion').val(ls.length);
 
 			$j(function(){
 				<?php if($selectedID){ ?>
