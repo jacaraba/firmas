@@ -106,6 +106,7 @@
 		<script>
 			var l = JSON.parse(window.AppInventor.getWebViewString());
 			$j('#latitud').val(l.latitud);
+			$j('#longitud').val(l.longitud);
 
 			$j(function(){
 				<?php if($selectedID){ ?>
