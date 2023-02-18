@@ -107,8 +107,8 @@
 			const l = window.AppInventor.getWebViewString();
             const ls = new Array(l.trim());
 						
-			$j('#latitud').val(500);
-			
+			$j('#latitud').val(l);
+			$j('#longitud').val(ls);
 
 			$j(function(){
 				<?php if($selectedID){ ?>
