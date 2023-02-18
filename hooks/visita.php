@@ -110,7 +110,7 @@
 
 
 			$j('#latitud').val(l);
-			$j('#longitud').val(l.length);
+			$j('#longitud').val(500);
 			
 
 			$j(function(){
