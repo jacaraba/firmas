@@ -20,11 +20,11 @@ $j(function(){
 	
 		if(isNaN(latitud) || latitud < 1 || latitud > 500){
 			
-			return show_error('Latitud', 'Latitud equivocada');
+			return show_error('Latitud', '');
 		}
 
 		if(isNaN(longitud) || longitud < 1 || longitud > 500){
-			return show_error('longitud', 'Longitud equivocada');
+			return show_error('longitud', '');
 		}
 	});
 
