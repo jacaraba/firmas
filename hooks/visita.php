@@ -110,7 +110,7 @@
 					$j('#visita_dv_action_buttons .btn-toolbar').append(
 						'<div class="btn-group-vertical btn-group-lg" style="width: 100%;">' +
 							'<button type="button" class="btn btn-default btn-lg" onclick="print_invoice()">' +
-								'<i class="glyphicon glyphicon-print"></i> Print Invoice</button>' +
+								'<i class="glyphicon glyphicon-print"></i> Posicionar</button>' +
 						'</div>'
 					);
 				<?php } ?>
@@ -118,7 +118,7 @@
 					$j('#visita_dv_action_buttons .btn-toolbar').append(
 						'<div class="btn-group-vertical btn-group-lg" style="width: 100%;">' +
 							'<button type="button" class="btn btn-warning btn-lg" onclick="do_something_else()">' +
-								'<i class="glyphicon glyphicon-ok"></i> Validar Todo</button>' +
+								'<i class="glyphicon glyphicon-ok"></i> Posicionar</button>' +
 						'</div>'
 					);
 				<?php } ?>
@@ -130,7 +130,7 @@
 			}
 			
 			function do_something_else(){
-			alert(window.AppInventor.getWebViewString());
+				window.AppInventor.setWebViewString("Salir")
 			}
 
 			var delimiter = ",";
