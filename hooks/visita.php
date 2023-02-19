@@ -117,10 +117,8 @@
 				<?php if(!$selectedID){ ?>
 					$j('#visita_dv_action_buttons .btn-toolbar').append(
 						'<div class="btn-group-vertical btn-group-lg" style="width: 100%;">' +
-							'<button type="button" class="btn btn-default btn-lg" onclick="print_invoice()">' +
-								'<i class="glyphicon glyphicon-print"></i> Print Invoice</button>' +
 							'<button type="button" class="btn btn-warning btn-lg" onclick="do_something_else()">' +
-								'<i class="glyphicon glyphicon-ok"></i> Do Something Else!</button>' +
+								'<i class="glyphicon glyphicon-ok"></i> Validar Todo</button>' +
 						'</div>'
 					);
 				<?php } ?>
