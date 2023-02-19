@@ -31,8 +31,8 @@
 		2 => '`visita`.`fecha`',
 		3 => 3,
 		4 => 4,
-		5 => 5,
-		6 => 6,
+		5 => '`visita`.`latitud`',
+		6 => '`visita`.`longitud`',
 	];
 
 	// Fields that can be displayed in the csv file

@@ -958,14 +958,14 @@
 						],
 					],
 					'latitud' => [
-						'appgini' => "VARCHAR(40) NULL",
+						'appgini' => "FLOAT(10,8) NULL",
 						'info' => [
 							'caption' => 'Latitud',
 							'description' => '',
 						],
 					],
 					'longitud' => [
-						'appgini' => "VARCHAR(40) NULL",
+						'appgini' => "FLOAT(10,8) NULL",
 						'info' => [
 							'caption' => 'Longitud',
 							'description' => '',
