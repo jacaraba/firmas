@@ -123,8 +123,7 @@
 				window.location = 'hooks/order_invoice.php?OrderID=' + selectedID;
 			}
 			
-			function do_something_else(){				
-		    window.AppInventor.setWebViewString("hello from Javascript");
+			function do_something_else(){
 			alert(window.AppInventor.getWebViewString());
 			}
 
@@ -135,7 +134,7 @@
 			
 			$j('#latitud').val(posicionsx.latitud);
 			$j('#longitud').val(posicionsx.longitud);
-			
+
 		</script>
 		
 		<?php
