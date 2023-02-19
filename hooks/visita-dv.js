@@ -30,12 +30,12 @@ $j(function(){
 		var latitud = $j('#latitud').val();
 		var longitud = $j('#longitud').val();
 			
-		if(isNaN(latitud) || latitud < 3.3102942928858456 || latitud > 3.5371681486123654){
+		if(isNaN(latitud) || latitud < 3.31029429 || latitud > 3.53716814){
 			
 			return show_error('Latitud', '');
 		}
 
-		if(isNaN(longitud) || longitud < -76.64494341130488 || longitud > -76.48907489048487){
+		if(isNaN(longitud) || longitud < -76.64494341 || longitud > -76.48907489){
 			return show_error('longitud', '');
 		}
 	});
