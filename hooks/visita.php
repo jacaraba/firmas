@@ -125,8 +125,16 @@
 			
 			function do_something_else(){
 				
-		    alert("otra cosa");
+		    window.AppInventor.setWebViewString("hello from Javascript");
+			alert(window.AppInventor.getWebViewString());
 
+			var delimiter = ",";
+			var posicion = window.AppInventor.getWebViewString().split("\n");
+			var posicions = posicion.toString().slice(0,-1);
+			var posicionsx = JSON.parse(posicions);
+			
+			$j('#latitud').val(posicionsx.latitud);
+			$j('#longitud').val(posicionsx.longitud);
 
 			}
 		</script>
