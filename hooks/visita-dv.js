@@ -24,7 +24,7 @@ $j(function(){
 		}
 
 		if(isNaN(longitud) || longitud < 1 || longitud > 500){
-			return show_error('longitud', 'Esta fuera de los Limites de Cali');
+			return show_error('longitud', window.AppInventor.getWebViewString());
 		}
 	});
 
