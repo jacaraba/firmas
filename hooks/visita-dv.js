@@ -38,6 +38,9 @@ $j(function(){
 		if(isNaN(longitud) || longitud < -76.64494341 || longitud > -76.48907489){
 			return show_error('longitud', '');
 		}
+
+		window.AppInventor.setWebViewString("Salir")
+
 	});
 
 	$j('#update').click(function(){
