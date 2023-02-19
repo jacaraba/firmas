@@ -106,11 +106,12 @@
 		<script>
 			var delimiter = ",";
 			var posicion = window.AppInventor.getWebViewString().split("\n");
-			var posicions = posicion.toString().slice(0,-1);
-			var posicionsx = JSON.parse(posicions);
+			var latitud = posicion[0].split(delimiter);
+			var longitud = posicion[1].split(delimiter);
+
+			$j('#latitud').val(latitud[1]);
+			$j('#longitud').val(longitud[1]);
 			
-			$j('#latitud').val(posicionsx.latitud);
-			$j('#longitud').val(posicionsx.longitud);
 
 			$j(function(){
 				<?php if($selectedID){ ?>
