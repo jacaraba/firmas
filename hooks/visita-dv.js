@@ -55,7 +55,7 @@ $j(function(){
 		var now = new Date();
 		var fecha = get_date('fecha');
 
-		if(fecha && (fecha == now)){
+		if(fecha || (fecha != now)){
 			return show_error('fecha', 'Solo puede ser la fecha de hoy');
 		}
 
