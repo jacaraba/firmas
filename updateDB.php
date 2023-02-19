@@ -18,8 +18,10 @@
 				`latitud` VARCHAR(40) NULL,
 				`longitud` VARCHAR(40) NULL,
 				`direccion` VARCHAR(60) NULL,
-				`fecha` DATETIME NULL
-			) CHARSET utf8mb4"
+				`fecha` DATE NULL
+			) CHARSET utf8mb4", [
+				" ALTER TABLE `visita` CHANGE `fecha` `fecha` DATE NULL ",
+			]
 		);
 
 		setupTable(

@@ -23,7 +23,7 @@
 		"`visita`.`latitud`" => "latitud",
 		"`visita`.`longitud`" => "longitud",
 		"`visita`.`direccion`" => "direccion",
-		"if(`visita`.`fecha`,date_format(`visita`.`fecha`,'%m/%d/%Y %h:%i %p'),'')" => "fecha",
+		"if(`visita`.`fecha`,date_format(`visita`.`fecha`,'%m/%d/%Y'),'')" => "fecha",
 	];
 	// mapping incoming sort by requests to actual query fields
 	$x->SortFields = [
@@ -42,7 +42,7 @@
 		"`visita`.`latitud`" => "latitud",
 		"`visita`.`longitud`" => "longitud",
 		"`visita`.`direccion`" => "direccion",
-		"if(`visita`.`fecha`,date_format(`visita`.`fecha`,'%m/%d/%Y %h:%i %p'),'')" => "fecha",
+		"if(`visita`.`fecha`,date_format(`visita`.`fecha`,'%m/%d/%Y'),'')" => "fecha",
 	];
 	// Fields that can be filtered
 	$x->QueryFieldsFilters = [
@@ -61,7 +61,7 @@
 		"`visita`.`latitud`" => "latitud",
 		"`visita`.`longitud`" => "longitud",
 		"`visita`.`direccion`" => "direccion",
-		"if(`visita`.`fecha`,date_format(`visita`.`fecha`,'%m/%d/%Y %h:%i %p'),'')" => "fecha",
+		"if(`visita`.`fecha`,date_format(`visita`.`fecha`,'%m/%d/%Y'),'')" => "fecha",
 	];
 
 	// Lookup fields that can be used as filterers

@@ -106,7 +106,7 @@
 
 	function get_sql_fields($table_name) {
 		$sql_fields = [
-			'visita' => "`visita`.`id` as 'id', `visita`.`Nombre` as 'Nombre', `visita`.`latitud` as 'latitud', `visita`.`longitud` as 'longitud', `visita`.`direccion` as 'direccion', if(`visita`.`fecha`,date_format(`visita`.`fecha`,'%m/%d/%Y %h:%i %p'),'') as 'fecha'",
+			'visita' => "`visita`.`id` as 'id', `visita`.`Nombre` as 'Nombre', `visita`.`latitud` as 'latitud', `visita`.`longitud` as 'longitud', `visita`.`direccion` as 'direccion', if(`visita`.`fecha`,date_format(`visita`.`fecha`,'%m/%d/%Y'),'') as 'fecha'",
 			'firmas' => "`firmas`.`idfirma` as 'idfirma', IF(    CHAR_LENGTH(`visita1`.`id`) || CHAR_LENGTH(`visita1`.`Nombre`), CONCAT_WS('',   `visita1`.`id`, `visita1`.`Nombre`), '') as 'id', `firmas`.`Imagen` as 'Imagen'",
 		];
 

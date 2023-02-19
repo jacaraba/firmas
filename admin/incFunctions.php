@@ -965,7 +965,7 @@
 						],
 					],
 					'fecha' => [
-						'appgini' => "DATETIME NULL",
+						'appgini' => "DATE NULL",
 						'info' => [
 							'caption' => 'Fecha',
 							'description' => '',

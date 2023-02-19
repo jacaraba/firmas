@@ -17,7 +17,7 @@ function visita_insert(&$error_message = '') {
 		'latitud' => Request::val('latitud', ''),
 		'longitud' => Request::val('longitud', ''),
 		'direccion' => Request::val('direccion', ''),
-		'fecha' => mysql_datetime(Request::val('fecha', '')),
+		'fecha' => Request::dateComponents('fecha', ''),
 	];
 
 
@@ -136,7 +136,7 @@ function visita_update(&$selected_id, &$error_message = '') {
 		'latitud' => Request::val('latitud', ''),
 		'longitud' => Request::val('longitud', ''),
 		'direccion' => Request::val('direccion', ''),
-		'fecha' => mysql_datetime(Request::val('fecha', '')),
+		'fecha' => Request::dateComponents('fecha', ''),
 	];
 
 	// get existing values
@@ -223,6 +223,14 @@ function visita_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $All
 
 	// unique random identifier
 	$rnd1 = ($dvprint ? rand(1000000, 9999999) : '');
+	// combobox: fecha
+	$combo_fecha = new DateCombo;
+	$combo_fecha->DateFormat = "mdy";
+	$combo_fecha->MinYear = defined('visita.fecha.MinYear') ? constant('visita.fecha.MinYear') : 1900;
+	$combo_fecha->MaxYear = defined('visita.fecha.MaxYear') ? constant('visita.fecha.MaxYear') : 2100;
+	$combo_fecha->DefaultDate = parseMySQLDate('', '');
+	$combo_fecha->MonthNames = $Translation['month names'];
+	$combo_fecha->NamePrefix = 'fecha';
 
 	if($selected_id) {
 		// mm: check member permissions
@@ -245,6 +253,7 @@ function visita_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $All
 		if(!($row = db_fetch_array($res))) {
 			return error_message($Translation['No records found'], 'visita_view.php', false);
 		}
+		$combo_fecha->DefaultDate = $row['fecha'];
 		$urow = $row; /* unsanitized data */
 		$row = array_map('safe_html', $row);
 	} else {
@@ -335,18 +344,24 @@ function visita_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $All
 		$jsReadOnly .= "\tjQuery('#latitud').replaceWith('<div class=\"form-control-static\" id=\"latitud\">' + (jQuery('#latitud').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\tjQuery('#longitud').replaceWith('<div class=\"form-control-static\" id=\"longitud\">' + (jQuery('#longitud').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\tjQuery('#direccion').replaceWith('<div class=\"form-control-static\" id=\"direccion\">' + (jQuery('#direccion').val() || '') + '</div>');\n";
-		$jsReadOnly .= "\tjQuery('#fecha').parents('.input-group').replaceWith('<div class=\"form-control-static\" id=\"fecha\">' + (jQuery('#fecha').val() || '') + '</div>');\n";
+		$jsReadOnly .= "\tjQuery('#fecha').prop('readonly', true);\n";
+		$jsReadOnly .= "\tjQuery('#fechaDay, #fechaMonth, #fechaYear').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
 		$jsReadOnly .= "\tjQuery('.select2-container').hide();\n";
 
 		$noUploads = true;
 	} elseif($AllowInsert) {
 		$jsEditable = "\tjQuery('form').eq(0).data('already_changed', true);"; // temporarily disable form change handler
-		$locale = isset($Translation['datetimepicker locale']) ? ", locale: '{$Translation['datetimepicker locale']}'" : '';
-		$jsEditable .= "\tjQuery('#fecha').addClass('always_shown').parents('.input-group').datetimepicker({ toolbarPlacement: 'top', sideBySide: true, showClear: true, showTodayButton: true, showClose: true, icons: { close: 'glyphicon glyphicon-ok' }, format: AppGini.datetimeFormat('dt') {$locale} });";
 		$jsEditable .= "\tjQuery('form').eq(0).data('already_changed', false);"; // re-enable form change handler
 	}
 
 	// process combos
+	$templateCode = str_replace(
+		'<%%COMBO(fecha)%%>', 
+		($selected_id && !$arrPerm['edit'] && ($noSaveAsCopy || !$arrPerm['insert']) ? 
+			'<div class="form-control-static">' . $combo_fecha->GetHTML(true) . '</div>' : 
+			$combo_fecha->GetHTML()
+		), $templateCode);
+	$templateCode = str_replace('<%%COMBOTEXT(fecha)%%>', $combo_fecha->GetHTML(true), $templateCode);
 
 	/* lookup fields array: 'lookup field name' => ['parent table name', 'lookup field caption'] */
 	$lookup_fields = [];
@@ -389,8 +404,8 @@ function visita_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $All
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(direccion)%%>', safe_html($urow['direccion']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(direccion)%%>', html_attr($row['direccion']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(direccion)%%>', urlencode($urow['direccion']), $templateCode);
-		$templateCode = str_replace('<%%VALUE(fecha)%%>', app_datetime($row['fecha'], 'dt'), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(fecha)%%>', urlencode(app_datetime($urow['fecha'], 'dt')), $templateCode);
+		$templateCode = str_replace('<%%VALUE(fecha)%%>', app_datetime($row['fecha']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(fecha)%%>', urlencode(app_datetime($urow['fecha'])), $templateCode);
 	} else {
 		$templateCode = str_replace('<%%VALUE(id)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(id)%%>', urlencode(''), $templateCode);
