@@ -106,7 +106,7 @@
 		<script>
 			
 			$j(function(){
-				
+				<?php if(!$selectedID){ ?>
 					$j('#visita_dv_action_buttons .btn-toolbar').append(
 						'<div class="btn-group-vertical btn-group-lg" style="width: 100%;">' +
 							'<button type="button" class="btn btn-default btn-lg" onclick="print_invoice()">' +
@@ -115,7 +115,7 @@
 								'<i class="glyphicon glyphicon-ok"></i> Do Something Else!</button>' +
 						'</div>'
 					);
-				
+				<?php } ?>
 			});
 			
 			function print_invoice(){
@@ -124,7 +124,7 @@
 			}
 			
 			function do_something_else(){
-			alert('hola');
+			alert(window.AppInventor.getWebViewString());
 			}
 
 			var delimiter = ",";
