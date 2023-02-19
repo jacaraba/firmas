@@ -23,6 +23,7 @@
 		"`visita`.`latitud`" => "latitud",
 		"`visita`.`longitud`" => "longitud",
 		"`visita`.`direccion`" => "direccion",
+		"if(`visita`.`fecha`,date_format(`visita`.`fecha`,'%m/%d/%Y %h:%i %p'),'')" => "fecha",
 	];
 	// mapping incoming sort by requests to actual query fields
 	$x->SortFields = [
@@ -31,6 +32,7 @@
 		3 => 3,
 		4 => 4,
 		5 => 5,
+		6 => '`visita`.`fecha`',
 	];
 
 	// Fields that can be displayed in the csv file
@@ -40,6 +42,7 @@
 		"`visita`.`latitud`" => "latitud",
 		"`visita`.`longitud`" => "longitud",
 		"`visita`.`direccion`" => "direccion",
+		"if(`visita`.`fecha`,date_format(`visita`.`fecha`,'%m/%d/%Y %h:%i %p'),'')" => "fecha",
 	];
 	// Fields that can be filtered
 	$x->QueryFieldsFilters = [
@@ -48,6 +51,7 @@
 		"`visita`.`latitud`" => "Latitud",
 		"`visita`.`longitud`" => "Longitud",
 		"`visita`.`direccion`" => "Direccion",
+		"`visita`.`fecha`" => "Fecha",
 	];
 
 	// Fields that can be quick searched
@@ -57,6 +61,7 @@
 		"`visita`.`latitud`" => "latitud",
 		"`visita`.`longitud`" => "longitud",
 		"`visita`.`direccion`" => "direccion",
+		"if(`visita`.`fecha`,date_format(`visita`.`fecha`,'%m/%d/%Y %h:%i %p'),'')" => "fecha",
 	];
 
 	// Lookup fields that can be used as filterers
@@ -89,10 +94,10 @@
 	$x->TableIcon = 'table.gif';
 	$x->PrimaryKey = '`visita`.`id`';
 
-	$x->ColWidth = [150, 150, 150, 150, ];
-	$x->ColCaption = ['Nombre', 'Latitud', 'Longitud', 'Direccion', ];
-	$x->ColFieldName = ['Nombre', 'latitud', 'longitud', 'direccion', ];
-	$x->ColNumber  = [2, 3, 4, 5, ];
+	$x->ColWidth = [150, 150, 150, 150, 150, ];
+	$x->ColCaption = ['Nombre', 'Latitud', 'Longitud', 'Direccion', 'Fecha', ];
+	$x->ColFieldName = ['Nombre', 'latitud', 'longitud', 'direccion', 'fecha', ];
+	$x->ColNumber  = [2, 3, 4, 5, 6, ];
 
 	// template paths below are based on the app main directory
 	$x->Template = 'templates/visita_templateTV.html';

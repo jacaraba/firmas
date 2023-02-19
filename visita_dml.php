@@ -17,6 +17,7 @@ function visita_insert(&$error_message = '') {
 		'latitud' => Request::val('latitud', ''),
 		'longitud' => Request::val('longitud', ''),
 		'direccion' => Request::val('direccion', ''),
+		'fecha' => mysql_datetime(Request::val('fecha', '')),
 	];
 
 
@@ -135,6 +136,7 @@ function visita_update(&$selected_id, &$error_message = '') {
 		'latitud' => Request::val('latitud', ''),
 		'longitud' => Request::val('longitud', ''),
 		'direccion' => Request::val('direccion', ''),
+		'fecha' => mysql_datetime(Request::val('fecha', '')),
 	];
 
 	// get existing values
@@ -333,11 +335,14 @@ function visita_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $All
 		$jsReadOnly .= "\tjQuery('#latitud').replaceWith('<div class=\"form-control-static\" id=\"latitud\">' + (jQuery('#latitud').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\tjQuery('#longitud').replaceWith('<div class=\"form-control-static\" id=\"longitud\">' + (jQuery('#longitud').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\tjQuery('#direccion').replaceWith('<div class=\"form-control-static\" id=\"direccion\">' + (jQuery('#direccion').val() || '') + '</div>');\n";
+		$jsReadOnly .= "\tjQuery('#fecha').parents('.input-group').replaceWith('<div class=\"form-control-static\" id=\"fecha\">' + (jQuery('#fecha').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\tjQuery('.select2-container').hide();\n";
 
 		$noUploads = true;
 	} elseif($AllowInsert) {
 		$jsEditable = "\tjQuery('form').eq(0).data('already_changed', true);"; // temporarily disable form change handler
+		$locale = isset($Translation['datetimepicker locale']) ? ", locale: '{$Translation['datetimepicker locale']}'" : '';
+		$jsEditable .= "\tjQuery('#fecha').addClass('always_shown').parents('.input-group').datetimepicker({ toolbarPlacement: 'top', sideBySide: true, showClear: true, showTodayButton: true, showClose: true, icons: { close: 'glyphicon glyphicon-ok' }, format: AppGini.datetimeFormat('dt') {$locale} });";
 		$jsEditable .= "\tjQuery('form').eq(0).data('already_changed', false);"; // re-enable form change handler
 	}
 
@@ -365,6 +370,7 @@ function visita_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $All
 	$templateCode = str_replace('<%%UPLOADFILE(latitud)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(longitud)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(direccion)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(fecha)%%>', '', $templateCode);
 
 	// process values
 	if($selected_id) {
@@ -383,6 +389,8 @@ function visita_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $All
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(direccion)%%>', safe_html($urow['direccion']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(direccion)%%>', html_attr($row['direccion']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(direccion)%%>', urlencode($urow['direccion']), $templateCode);
+		$templateCode = str_replace('<%%VALUE(fecha)%%>', app_datetime($row['fecha'], 'dt'), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(fecha)%%>', urlencode(app_datetime($urow['fecha'], 'dt')), $templateCode);
 	} else {
 		$templateCode = str_replace('<%%VALUE(id)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(id)%%>', urlencode(''), $templateCode);
@@ -394,6 +402,8 @@ function visita_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $All
 		$templateCode = str_replace('<%%URLVALUE(longitud)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(direccion)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(direccion)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(fecha)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(fecha)%%>', urlencode(''), $templateCode);
 	}
 
 	// process translations

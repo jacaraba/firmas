@@ -964,6 +964,13 @@
 							'description' => '',
 						],
 					],
+					'fecha' => [
+						'appgini' => "DATETIME NULL",
+						'info' => [
+							'caption' => 'Fecha',
+							'description' => '',
+						],
+					],
 				],
 				'firmas' => [
 					'idfirma' => [

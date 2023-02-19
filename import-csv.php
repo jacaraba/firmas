@@ -5,6 +5,7 @@
 	// accept a record as an assoc array, return transformed row ready to insert to table
 	$transformFunctions = [
 		'visita' => function($data, $options = []) {
+			if(isset($data['fecha'])) $data['fecha'] = guessMySQLDateTime($data['fecha']);
 
 			return $data;
 		},

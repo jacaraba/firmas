@@ -82,4 +82,5 @@
 			<?php } ?>
 
 			<?php if(!defined('APPGINI_SETUP') && is_file(__DIR__ . '/hooks/header-extras.php')) { include(__DIR__ . '/hooks/header-extras.php'); } ?>
-			<!-- Add header template below here .. -->		
+			<!-- Add header template below here .. -->
+
