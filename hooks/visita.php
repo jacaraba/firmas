@@ -124,7 +124,7 @@
 			}
 			
 			function do_something_else(){
-			alert(window.AppInventor.getWebViewString());
+			alert('hola');
 			}
 
 			var delimiter = ",";
