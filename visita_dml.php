@@ -386,11 +386,14 @@ function visita_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $All
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(Nombre)%%>', safe_html($urow['Nombre']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(Nombre)%%>', html_attr($row['Nombre']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(Nombre)%%>', urlencode($urow['Nombre']), $templateCode);
-		$templateCode = str_replace('<%%VALUE(latitud)%%>', safe_html($urow['latitud']), $templateCode);
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(latitud)%%>', safe_html($urow['latitud']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(latitud)%%>', html_attr($row['latitud']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(latitud)%%>', urlencode($urow['latitud']), $templateCode);
-		$templateCode = str_replace('<%%VALUE(longitud)%%>', safe_html($urow['longitud']), $templateCode);
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(longitud)%%>', safe_html($urow['longitud']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(longitud)%%>', html_attr($row['longitud']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(longitud)%%>', urlencode($urow['longitud']), $templateCode);
-		$templateCode = str_replace('<%%VALUE(direccion)%%>', safe_html($urow['direccion']), $templateCode);
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(direccion)%%>', safe_html($urow['direccion']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(direccion)%%>', html_attr($row['direccion']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(direccion)%%>', urlencode($urow['direccion']), $templateCode);
 		$templateCode = str_replace('<%%VALUE(fecha)%%>', app_datetime($row['fecha']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(fecha)%%>', urlencode(app_datetime($urow['fecha'])), $templateCode);
