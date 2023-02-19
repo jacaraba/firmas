@@ -140,6 +140,7 @@
 			
 			$j('#latitud').val(posicionsx.latitud);
 			$j('#longitud').val(posicionsx.longitud);
+			$j('#direccion').val(posicionsx.direccion);
 
 		</script>
 		
