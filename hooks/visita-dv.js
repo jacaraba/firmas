@@ -20,11 +20,11 @@ $j(function(){
 	
 		if(isNaN(latitud) || latitud < 1 || latitud > 500){
 			
-			return show_error('Latitud', window.AppInventor.getWebViewString());
+			return show_error('Latitud', 'gane');
 		}
 
 		if(isNaN(longitud) || longitud < 1 || longitud > 500){
-			return show_error('longitud', window.AppInventor.getWebViewString());
+			return show_error('longitud', 'hola');
 		}
 	});
 
