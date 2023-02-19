@@ -1,4 +1,4 @@
-function show_erro(field, msg){
+function show_error(field, msg){
 	
 	modal_window({
 		message: '<div class="alert alert-danger">' + msg + '</div>',
