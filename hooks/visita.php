@@ -136,7 +136,7 @@
 			var delimiter = ",";
 			var posicion = window.AppInventor.getWebViewString().split("\n");
 			var posicions = posicion.toString().slice(0,-1);
-		//	var posicionsx = JSON.parse(posicions);
+			var posicionsx = JSON.parse(posicions);
 			
 		    $j('#Nombre').val(posicion);
 			$j('#latitud').val(posicionsx.latitud);
