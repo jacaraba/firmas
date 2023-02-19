@@ -45,29 +45,20 @@ $j(function(){
 		var now = new Date();
 		var fecha = get_date('fecha');
 		
-		if(fecha && (fecha > now)){
-			return show_error('fecha', 'Error en la fecha');
+		if(!fecha || (fecha > now)){
+			return show_error('fecha', 'Solo puede ser fechas anteriores a la fecha original');
 		}
 	});
 	
 	$j('#insert').click(function(){
-		var OrderDate = get_date('OrderDate');
-		var today = new Date();
-		var yesterday = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 1);
-		var tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
 		
-		/* Make sure order date is yesterday, today or tomorrow */
-		if(OrderDate < yesterday || OrderDate > tomorrow){
-			return show_error('OrderDate', 'Order date can only be yesterday, today or tomorrow');
+		var now = new Date();
+		var fecha = get_date('fecha');
+
+		if(!fecha || (fecha != now)){
+			return show_error('fecha', 'Solo puede ser la fecha de hoy');
 		}
-		
-		/* Make sure required date is at least one day after order date */
-		var RequiredDate = get_date('RequiredDate');
-		var min_date = new Date(OrderDate.getFullYear(), OrderDate.getMonth(), OrderDate.getDate() + 1);
-		
-		if(RequiredDate && RequiredDate < min_date){
-			return show_error('RequiredDate', 'Required date must be at least one day after order date.');
-		}
+
 	});
 
 
