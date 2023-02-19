@@ -20,7 +20,9 @@
 				`direccion` VARCHAR(60) NULL,
 				`fecha` DATE NULL
 			) CHARSET utf8mb4", [
-				" ALTER TABLE `visita` CHANGE `fecha` `fecha` DATE NULL ",
+				" ALTER TABLE `visita` CHANGE `latitud` `latitud` VARCHAR(40) NULL ",
+				" ALTER TABLE `visita` CHANGE `longitud` `longitud` VARCHAR(40) NULL ",
+				" ALTER TABLE `visita` CHANGE `direccion` `direccion` VARCHAR(60) NULL ",
 			]
 		);
 
