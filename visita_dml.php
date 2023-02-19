@@ -13,8 +13,11 @@ function visita_insert(&$error_message = '') {
 	if(!$arrPerm['insert']) return false;
 
 	$data = [
-		'Nombre' => Request::val('Nombre', ''),
 		'fecha' => Request::dateComponents('fecha', ''),
+		'nombre' => Request::val('nombre', ''),
+		'direccion' => Request::val('direccion', ''),
+		'latitud' => Request::val('latitud', ''),
+		'longitud' => Request::val('longitud', ''),
 	];
 
 
@@ -129,8 +132,11 @@ function visita_update(&$selected_id, &$error_message = '') {
 	if(!check_record_permission('visita', $selected_id, 'edit')) return false;
 
 	$data = [
-		'Nombre' => Request::val('Nombre', ''),
 		'fecha' => Request::dateComponents('fecha', ''),
+		'nombre' => Request::val('nombre', ''),
+		'direccion' => Request::val('direccion', ''),
+		'latitud' => Request::val('latitud', ''),
+		'longitud' => Request::val('longitud', ''),
 	];
 
 	// get existing values
@@ -334,9 +340,12 @@ function visita_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $All
 	// set records to read only if user can't insert new records and can't edit current record
 	if(($selected_id && !$AllowUpdate && !$AllowInsert) || (!$selected_id && !$AllowInsert)) {
 		$jsReadOnly = '';
-		$jsReadOnly .= "\tjQuery('#Nombre').replaceWith('<div class=\"form-control-static\" id=\"Nombre\">' + (jQuery('#Nombre').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\tjQuery('#fecha').prop('readonly', true);\n";
 		$jsReadOnly .= "\tjQuery('#fechaDay, #fechaMonth, #fechaYear').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
+		$jsReadOnly .= "\tjQuery('#nombre').replaceWith('<div class=\"form-control-static\" id=\"nombre\">' + (jQuery('#nombre').val() || '') + '</div>');\n";
+		$jsReadOnly .= "\tjQuery('#direccion').replaceWith('<div class=\"form-control-static\" id=\"direccion\">' + (jQuery('#direccion').val() || '') + '</div>');\n";
+		$jsReadOnly .= "\tjQuery('#latitud').replaceWith('<div class=\"form-control-static\" id=\"latitud\">' + (jQuery('#latitud').val() || '') + '</div>');\n";
+		$jsReadOnly .= "\tjQuery('#longitud').replaceWith('<div class=\"form-control-static\" id=\"longitud\">' + (jQuery('#longitud').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\tjQuery('.select2-container').hide();\n";
 
 		$noUploads = true;
@@ -372,44 +381,44 @@ function visita_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $All
 
 	// process images
 	$templateCode = str_replace('<%%UPLOADFILE(id)%%>', '', $templateCode);
-	$templateCode = str_replace('<%%UPLOADFILE(Nombre)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(fecha)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(nombre)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(direccion)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(latitud)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(longitud)%%>', '', $templateCode);
-	$templateCode = str_replace('<%%UPLOADFILE(direccion)%%>', '', $templateCode);
-	$templateCode = str_replace('<%%UPLOADFILE(fecha)%%>', '', $templateCode);
 
 	// process values
 	if($selected_id) {
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(id)%%>', safe_html($urow['id']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(id)%%>', html_attr($row['id']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(id)%%>', urlencode($urow['id']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(Nombre)%%>', safe_html($urow['Nombre']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(Nombre)%%>', html_attr($row['Nombre']), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(Nombre)%%>', urlencode($urow['Nombre']), $templateCode);
+		$templateCode = str_replace('<%%VALUE(fecha)%%>', app_datetime($row['fecha']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(fecha)%%>', urlencode(app_datetime($urow['fecha'])), $templateCode);
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(nombre)%%>', safe_html($urow['nombre']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(nombre)%%>', html_attr($row['nombre']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(nombre)%%>', urlencode($urow['nombre']), $templateCode);
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(direccion)%%>', safe_html($urow['direccion']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(direccion)%%>', html_attr($row['direccion']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(direccion)%%>', urlencode($urow['direccion']), $templateCode);
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(latitud)%%>', safe_html($urow['latitud']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(latitud)%%>', html_attr($row['latitud']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(latitud)%%>', urlencode($urow['latitud']), $templateCode);
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(longitud)%%>', safe_html($urow['longitud']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(longitud)%%>', html_attr($row['longitud']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(longitud)%%>', urlencode($urow['longitud']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(direccion)%%>', safe_html($urow['direccion']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(direccion)%%>', html_attr($row['direccion']), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(direccion)%%>', urlencode($urow['direccion']), $templateCode);
-		$templateCode = str_replace('<%%VALUE(fecha)%%>', app_datetime($row['fecha']), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(fecha)%%>', urlencode(app_datetime($urow['fecha'])), $templateCode);
 	} else {
 		$templateCode = str_replace('<%%VALUE(id)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(id)%%>', urlencode(''), $templateCode);
-		$templateCode = str_replace('<%%VALUE(Nombre)%%>', '', $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(Nombre)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(fecha)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(fecha)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(nombre)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(nombre)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(direccion)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(direccion)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(latitud)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(latitud)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(longitud)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(longitud)%%>', urlencode(''), $templateCode);
-		$templateCode = str_replace('<%%VALUE(direccion)%%>', '', $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(direccion)%%>', urlencode(''), $templateCode);
-		$templateCode = str_replace('<%%VALUE(fecha)%%>', '', $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(fecha)%%>', urlencode(''), $templateCode);
 	}
 
 	// process translations

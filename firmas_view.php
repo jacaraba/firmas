@@ -19,7 +19,7 @@
 	// Fields that can be displayed in the table view
 	$x->QueryFieldsTV = [
 		"`firmas`.`idfirma`" => "idfirma",
-		"IF(    CHAR_LENGTH(`visita1`.`id`) || CHAR_LENGTH(`visita1`.`Nombre`), CONCAT_WS('',   `visita1`.`id`, `visita1`.`Nombre`), '') /* ID */" => "id",
+		"IF(    CHAR_LENGTH(`visita1`.`id`) || CHAR_LENGTH(`visita1`.`nombre`), CONCAT_WS('',   `visita1`.`id`, `visita1`.`nombre`), '') /* ID */" => "id",
 		"`firmas`.`Imagen`" => "Imagen",
 	];
 	// mapping incoming sort by requests to actual query fields
@@ -32,19 +32,19 @@
 	// Fields that can be displayed in the csv file
 	$x->QueryFieldsCSV = [
 		"`firmas`.`idfirma`" => "idfirma",
-		"IF(    CHAR_LENGTH(`visita1`.`id`) || CHAR_LENGTH(`visita1`.`Nombre`), CONCAT_WS('',   `visita1`.`id`, `visita1`.`Nombre`), '') /* ID */" => "id",
+		"IF(    CHAR_LENGTH(`visita1`.`id`) || CHAR_LENGTH(`visita1`.`nombre`), CONCAT_WS('',   `visita1`.`id`, `visita1`.`nombre`), '') /* ID */" => "id",
 		"`firmas`.`Imagen`" => "Imagen",
 	];
 	// Fields that can be filtered
 	$x->QueryFieldsFilters = [
 		"`firmas`.`idfirma`" => "ID",
-		"IF(    CHAR_LENGTH(`visita1`.`id`) || CHAR_LENGTH(`visita1`.`Nombre`), CONCAT_WS('',   `visita1`.`id`, `visita1`.`Nombre`), '') /* ID */" => "ID",
+		"IF(    CHAR_LENGTH(`visita1`.`id`) || CHAR_LENGTH(`visita1`.`nombre`), CONCAT_WS('',   `visita1`.`id`, `visita1`.`nombre`), '') /* ID */" => "ID",
 	];
 
 	// Fields that can be quick searched
 	$x->QueryFieldsQS = [
 		"`firmas`.`idfirma`" => "idfirma",
-		"IF(    CHAR_LENGTH(`visita1`.`id`) || CHAR_LENGTH(`visita1`.`Nombre`), CONCAT_WS('',   `visita1`.`id`, `visita1`.`Nombre`), '') /* ID */" => "id",
+		"IF(    CHAR_LENGTH(`visita1`.`id`) || CHAR_LENGTH(`visita1`.`nombre`), CONCAT_WS('',   `visita1`.`id`, `visita1`.`nombre`), '') /* ID */" => "id",
 	];
 
 	// Lookup fields that can be used as filterers

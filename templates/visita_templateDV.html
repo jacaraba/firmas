@@ -31,21 +31,48 @@
 					</div>
 				</div>
 
-				<!-- Field: Nombre -->
-				<div class="form-group visita-Nombre">
-					<hr class="hidden-md hidden-lg">
-					<label class="control-label col-lg-3" for="Nombre">Nombre</label>
-					<div class="col-lg-9">
-						<input maxlength="60" type="text" class="form-control" name="Nombre" id="Nombre" value="<%%VALUE(Nombre)%%>">
-					</div>
-				</div>
-
 				<!-- Field: Fecha -->
 				<div class="form-group visita-fecha">
 					<hr class="hidden-md hidden-lg">
 					<label class="control-label col-lg-3" for="fecha-mm">Fecha</label>
 					<div class="col-lg-9">
 						<%%COMBO(fecha)%%>
+					</div>
+				</div>
+
+				<!-- Field: Nombre -->
+				<div class="form-group visita-nombre">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="nombre">Nombre</label>
+					<div class="col-lg-9">
+						<input maxlength="60" type="text" class="form-control" name="nombre" id="nombre" value="<%%VALUE(nombre)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Direccion -->
+				<div class="form-group visita-direccion">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="direccion">Direccion</label>
+					<div class="col-lg-9">
+						<input maxlength="60" type="text" class="form-control" name="direccion" id="direccion" value="<%%VALUE(direccion)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Latitud -->
+				<div class="form-group visita-latitud">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="latitud">Latitud</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="latitud" id="latitud" value="<%%VALUE(latitud)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Longitud -->
+				<div class="form-group visita-longitud">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="longitud">Longitud</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="longitud" id="longitud" value="<%%VALUE(longitud)%%>">
 					</div>
 				</div>
 
@@ -102,7 +129,7 @@
 
 			$j('#visita_dv_container-loading').addClass('hidden');
 			$j('#visita_dv_container').removeClass('hidden');
-			if(!$j('.table_view').length || $j('[name=SelectedID]').val().length) AppGini.focusFormElement('visita', 'Nombre');
+			if(!$j('.table_view').length || $j('[name=SelectedID]').val().length) AppGini.focusFormElement('visita', 'fecha');
 
 			$j('form').eq(0).change(function() {
 				if($j(this).data('already_changed')) return;

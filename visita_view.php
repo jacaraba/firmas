@@ -19,49 +19,49 @@
 	// Fields that can be displayed in the table view
 	$x->QueryFieldsTV = [
 		"`visita`.`id`" => "id",
-		"`visita`.`Nombre`" => "Nombre",
+		"if(`visita`.`fecha`,date_format(`visita`.`fecha`,'%m/%d/%Y'),'')" => "fecha",
+		"`visita`.`nombre`" => "nombre",
+		"`visita`.`direccion`" => "direccion",
 		"`visita`.`latitud`" => "latitud",
 		"`visita`.`longitud`" => "longitud",
-		"`visita`.`direccion`" => "direccion",
-		"if(`visita`.`fecha`,date_format(`visita`.`fecha`,'%m/%d/%Y'),'')" => "fecha",
 	];
 	// mapping incoming sort by requests to actual query fields
 	$x->SortFields = [
 		1 => '`visita`.`id`',
-		2 => 2,
+		2 => '`visita`.`fecha`',
 		3 => 3,
 		4 => 4,
 		5 => 5,
-		6 => '`visita`.`fecha`',
+		6 => 6,
 	];
 
 	// Fields that can be displayed in the csv file
 	$x->QueryFieldsCSV = [
 		"`visita`.`id`" => "id",
-		"`visita`.`Nombre`" => "Nombre",
+		"if(`visita`.`fecha`,date_format(`visita`.`fecha`,'%m/%d/%Y'),'')" => "fecha",
+		"`visita`.`nombre`" => "nombre",
+		"`visita`.`direccion`" => "direccion",
 		"`visita`.`latitud`" => "latitud",
 		"`visita`.`longitud`" => "longitud",
-		"`visita`.`direccion`" => "direccion",
-		"if(`visita`.`fecha`,date_format(`visita`.`fecha`,'%m/%d/%Y'),'')" => "fecha",
 	];
 	// Fields that can be filtered
 	$x->QueryFieldsFilters = [
 		"`visita`.`id`" => "ID",
-		"`visita`.`Nombre`" => "Nombre",
+		"`visita`.`fecha`" => "Fecha",
+		"`visita`.`nombre`" => "Nombre",
+		"`visita`.`direccion`" => "Direccion",
 		"`visita`.`latitud`" => "Latitud",
 		"`visita`.`longitud`" => "Longitud",
-		"`visita`.`direccion`" => "Direccion",
-		"`visita`.`fecha`" => "Fecha",
 	];
 
 	// Fields that can be quick searched
 	$x->QueryFieldsQS = [
 		"`visita`.`id`" => "id",
-		"`visita`.`Nombre`" => "Nombre",
+		"if(`visita`.`fecha`,date_format(`visita`.`fecha`,'%m/%d/%Y'),'')" => "fecha",
+		"`visita`.`nombre`" => "nombre",
+		"`visita`.`direccion`" => "direccion",
 		"`visita`.`latitud`" => "latitud",
 		"`visita`.`longitud`" => "longitud",
-		"`visita`.`direccion`" => "direccion",
-		"if(`visita`.`fecha`,date_format(`visita`.`fecha`,'%m/%d/%Y'),'')" => "fecha",
 	];
 
 	// Lookup fields that can be used as filterers
@@ -95,8 +95,8 @@
 	$x->PrimaryKey = '`visita`.`id`';
 
 	$x->ColWidth = [150, 150, 150, 150, 150, ];
-	$x->ColCaption = ['Nombre', 'Latitud', 'Longitud', 'Direccion', 'Fecha', ];
-	$x->ColFieldName = ['Nombre', 'latitud', 'longitud', 'direccion', 'fecha', ];
+	$x->ColCaption = ['Fecha', 'Nombre', 'Direccion', 'Latitud', 'Longitud', ];
+	$x->ColFieldName = ['fecha', 'nombre', 'direccion', 'latitud', 'longitud', ];
 	$x->ColNumber  = [2, 3, 4, 5, 6, ];
 
 	// template paths below are based on the app main directory

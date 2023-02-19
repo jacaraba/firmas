@@ -14,15 +14,13 @@
 			CREATE TABLE IF NOT EXISTS `visita` ( 
 				`id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
 				PRIMARY KEY (`id`),
-				`Nombre` VARCHAR(60) NULL,
-				`latitud` VARCHAR(40) NULL,
-				`longitud` VARCHAR(40) NULL,
+				`fecha` DATE NULL,
+				`nombre` VARCHAR(60) NULL,
 				`direccion` VARCHAR(60) NULL,
-				`fecha` DATE NULL
+				`latitud` VARCHAR(40) NULL,
+				`longitud` VARCHAR(40) NULL
 			) CHARSET utf8mb4", [
-				" ALTER TABLE `visita` CHANGE `latitud` `latitud` VARCHAR(40) NULL ",
-				" ALTER TABLE `visita` CHANGE `longitud` `longitud` VARCHAR(40) NULL ",
-				" ALTER TABLE `visita` CHANGE `direccion` `direccion` VARCHAR(60) NULL ",
+				"ALTER TABLE `visita` CHANGE `Nombre` `nombre` VARCHAR(60) NULL ",
 			]
 		);
 

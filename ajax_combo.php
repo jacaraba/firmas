@@ -38,7 +38,7 @@
 			'id' => [
 				'parent_table' => 'visita',
 				'parent_pk_field' => 'id',
-				'parent_caption' => 'IF(CHAR_LENGTH(`visita`.`id`) || CHAR_LENGTH(`visita`.`Nombre`), CONCAT_WS(\'\', `visita`.`id`, `visita`.`Nombre`), \'\')',
+				'parent_caption' => 'IF(CHAR_LENGTH(`visita`.`id`) || CHAR_LENGTH(`visita`.`nombre`), CONCAT_WS(\'\', `visita`.`id`, `visita`.`nombre`), \'\')',
 				'parent_from' => '`visita` ',
 				'filterers' => [],
 				'custom_query' => '',

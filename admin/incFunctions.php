@@ -936,10 +936,24 @@
 							'description' => '',
 						],
 					],
-					'Nombre' => [
+					'fecha' => [
+						'appgini' => "DATE NULL",
+						'info' => [
+							'caption' => 'Fecha',
+							'description' => '',
+						],
+					],
+					'nombre' => [
 						'appgini' => "VARCHAR(60) NULL",
 						'info' => [
 							'caption' => 'Nombre',
+							'description' => '',
+						],
+					],
+					'direccion' => [
+						'appgini' => "VARCHAR(60) NULL",
+						'info' => [
+							'caption' => 'Direccion',
 							'description' => '',
 						],
 					],
@@ -954,20 +968,6 @@
 						'appgini' => "VARCHAR(40) NULL",
 						'info' => [
 							'caption' => 'Longitud',
-							'description' => '',
-						],
-					],
-					'direccion' => [
-						'appgini' => "VARCHAR(60) NULL",
-						'info' => [
-							'caption' => 'Direccion',
-							'description' => '',
-						],
-					],
-					'fecha' => [
-						'appgini' => "DATE NULL",
-						'info' => [
-							'caption' => 'Fecha',
 							'description' => '',
 						],
 					],
@@ -2198,7 +2198,7 @@
 			'visita' => [
 			],
 			'firmas' => [
-				'id' => 'SELECT `visita`.`id`, IF(CHAR_LENGTH(`visita`.`id`) || CHAR_LENGTH(`visita`.`Nombre`), CONCAT_WS(\'\', `visita`.`id`, `visita`.`Nombre`), \'\') FROM `visita` ORDER BY 2',
+				'id' => 'SELECT `visita`.`id`, IF(CHAR_LENGTH(`visita`.`id`) || CHAR_LENGTH(`visita`.`nombre`), CONCAT_WS(\'\', `visita`.`id`, `visita`.`nombre`), \'\') FROM `visita` ORDER BY 2',
 			],
 		];
 
