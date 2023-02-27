@@ -149,10 +149,10 @@
 			$j('#fecha' + '-mm').val(today.getMonth()+1);
 			$j('#fecha' + '-dd').val(today.getDate());
 			if (posicionsx.ingreso == "salir") { $j('#insert').click(); }	
-		//	$j('#insert').click(); 
-		//	$j('#insert').hide();
-		//	$j('#deselect').hide();
-		//	$j('#posicionar').hide();		
+			$j('#insert').click(); 
+			$j('#insert').hide();
+			$j('#deselect').hide();
+			$j('#posicionar').hide();		
 
 		</script>
 		
