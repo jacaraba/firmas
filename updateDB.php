@@ -19,12 +19,7 @@
 				`direccion` VARCHAR(60) NULL,
 				`latitud` FLOAT(10,8) NULL,
 				`longitud` FLOAT(10,8) NULL
-			) CHARSET utf8mb4", [
-				" ALTER TABLE `visita` CHANGE `latitud` `latitud` FLOAT(10,2) NULL ",
-				" ALTER TABLE `visita` CHANGE `longitud` `longitud` FLOAT(10,2) NULL ",
-				" ALTER TABLE `visita` CHANGE `longitud` `longitud` FLOAT(10,8) NULL ",
-				" ALTER TABLE `visita` CHANGE `latitud` `latitud` FLOAT(10,8) NULL ",
-			]
+			) CHARSET utf8mb4"
 		);
 
 		setupTable(
