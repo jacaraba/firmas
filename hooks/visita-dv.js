@@ -24,25 +24,6 @@ function get_date(date_field){
 	return date_object;
 }
 
-$j(function(){
-	$j('#update, #insert').click(function(){
-		/* Valida el campo latitud */
-		var latitud = $j('#latitud').val();
-		var longitud = $j('#longitud').val();
-			
-		if(isNaN(latitud) || latitud < 3.31029429 || latitud > 3.53716814){
-			
-			return show_error('Latitud', '');
-		}
-
-		if(isNaN(longitud) || longitud < -76.64494341 || longitud > -76.48907489){
-			return show_error('longitud', '');
-		}
-
-		window.AppInventor.setWebViewString("Salir")
-
-	});
-
 	$j('#update').click(function(){
 		/* Make sure shipped date is today or older, but not older than order date */
 		var now = new Date();
