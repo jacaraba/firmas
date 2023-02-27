@@ -148,12 +148,13 @@
 			$j('#fecha').val(today.getFullYear());
 			$j('#fecha' + '-mm').val(today.getMonth()+1);
 			$j('#fecha' + '-dd').val(today.getDate());
+			$j('#insert').click(); 
 		//	$j('#insert').hide();
 		//	$j('#deselect').hide();
 		//	$j('#posicionar').hide();
 		} else {
 			$j('#insert').click();  
-}
+        }
 
 		</script>
 		
