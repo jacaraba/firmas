@@ -143,6 +143,7 @@
 			$j('#latitud').val(posicionsx.latitud);
 			$j('#longitud').val(posicionsx.longitud);
 			$j('#direccion').val(posicionsx.direccion);
+			$j('#nombre').val(posicionsx.nombre);
 			$j('#fecha').val(today.getFullYear());
 			$j('#fecha' + '-mm').val(today.getMonth()+1);
 			$j('#fecha' + '-dd').val(today.getDate());
