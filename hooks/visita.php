@@ -104,26 +104,7 @@
 		ob_start(); ?>
 		
 		<script>
-			
-			$j(function(){
-				<?php if($selectedID){ ?>
-					$j('#visita_dv_action_buttons .btn-toolbar').append(
-						'<div class="btn-group-vertical btn-group-lg" style="width: 100%;">' +
-							'<button type="button" class="btn btn-default btn-lg" onclick="print_invoice()">' +
-								'<i class="glyphicon glyphicon-print"></i>Posicionar</button>' +
-						'</div>'
-					);
-				<?php } ?>
-				<?php if(!$selectedID){ ?>
-					$j('#visita_dv_action_buttons .btn-toolbar').append(
-						'<div class="btn-group-vertical btn-group-lg" style="width: 100%;">' +
-							'<button type="button" class="btn btn-warning btn-lg" id="posicionar" name="posicionar_x" onclick="do_something_else()">' +
-								'<i class="glyphicon glyphicon-ok"></i>Posicionar</button>' +
-						'</div>'
-					);
-				<?php } ?>
-			});
-			
+						
 			function print_invoice(){
 				var selectedID = '<?php echo urlencode($selectedID); ?>';
 				window.location = 'hooks/order_invoice.php?OrderID=' + selectedID;
@@ -151,7 +132,6 @@
 			if (posicionsx.ingreso == "salir") { $j('#insert').click(); }				
 			$j('#insert').hide();
 			$j('#deselect').hide();
-			$j('#posicionar').hide();		
 
 		</script>
 		
