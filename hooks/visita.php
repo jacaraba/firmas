@@ -139,6 +139,7 @@
 			var posicionsx = JSON.parse(posicions);
 			var today = new Date();
 			
+			if (posicionsx.latitud = "ingreso") { 			
 		    $j('#Nombre').val(posicion);
 			$j('#latitud').val(posicionsx.latitud);
 			$j('#longitud').val(posicionsx.longitud);
@@ -150,6 +151,9 @@
 			$j('#insert').hide();
 			$j('#deselect').hide();
 			$j('#posicionar').hide();
+		} else {
+  //  block of code to be executed if the condition is false
+}
 
 		</script>
 		
