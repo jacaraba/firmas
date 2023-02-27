@@ -79,7 +79,6 @@
 				</div><p></p>
 				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
 					<%%DESELECT_BUTTON%%>
-					<%%DVPRINT_BUTTON%%>
 					<%%DELETE_BUTTON%%>
 				</div><p></p>
 				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
@@ -120,7 +119,6 @@
 
 			$j('#visita_dv_container-loading').addClass('hidden');
 			$j('#visita_dv_container').removeClass('hidden');
-			if(!$j('.table_view').length || $j('[name=SelectedID]').val().length) AppGini.focusFormElement('visita', 'fecha');
 
 			$j('form').eq(0).change(function() {
 				if($j(this).data('already_changed')) return;
