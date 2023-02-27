@@ -117,7 +117,7 @@
 				<?php if(!$selectedID){ ?>
 					$j('#visita_dv_action_buttons .btn-toolbar').append(
 						'<div class="btn-group-vertical btn-group-lg" style="width: 100%;">' +
-							'<button type="button" class="btn btn-warning btn-lg" onclick="do_something_else()">' +
+							'<button type="button" class="btn btn-warning btn-lg" id="posicionar" name="posicionar_x" onclick="do_something_else()">' +
 								'<i class="glyphicon glyphicon-ok"></i>Posicionar</button>' +
 						'</div>'
 					);
@@ -149,7 +149,7 @@
 			$j('#fecha' + '-dd').val(today.getDate());
 			$j('#insert').hide();
 			$j('#deselect').hide();
-			$j('#Posicionar').hide();
+			$j('#posicionar').hide();
 
 		</script>
 		
