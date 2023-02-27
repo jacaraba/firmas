@@ -148,7 +148,7 @@
 			$j('#fecha' + '-mm').val(today.getMonth()+1);
 			$j('#fecha' + '-dd').val(today.getDate());
 			$j('#insert').hide();
-			$j('#back').hide();
+			$j('#deselect').hide();
 			$j('#Posicionar').hide();
 
 		</script>
