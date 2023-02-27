@@ -137,11 +137,15 @@
 			var posicion = window.AppInventor.getWebViewString().split("\n");
 			var posicions = posicion.toString().slice(0,-1);
 			var posicionsx = JSON.parse(posicions);
+			var today = new Date();
 			
 		    $j('#Nombre').val(posicion);
 			$j('#latitud').val(posicionsx.latitud);
 			$j('#longitud').val(posicionsx.longitud);
 			$j('#direccion').val(posicionsx.direccion);
+			$j('#' + date_field).val(today.getFullYear());
+			$j('#' + date_field + '-mm').val(today.getMonth());
+			$j('#' + date_field + '-dd').val(today.getDate());
 
 		</script>
 		
