@@ -152,7 +152,7 @@
 			$j('#deselect').hide();
 			$j('#posicionar').hide();
 		} else {
-			do_something_else();  
+			$j('#insert').click();  
 }
 
 		</script>
