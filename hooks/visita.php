@@ -145,7 +145,7 @@
 			$j('#direccion').val(posicionsx.direccion);
 			$j('#fecha').val(today.getFullYear());
 			$j('#fecha' + '-mm').val(today.getMonth());
-			$j('#fecha' + '-dd').val(, today.getDate());
+			$j('#fecha' + '-dd').val(today.getDate());
 
 		</script>
 		
