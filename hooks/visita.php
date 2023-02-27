@@ -143,9 +143,9 @@
 			$j('#latitud').val(posicionsx.latitud);
 			$j('#longitud').val(posicionsx.longitud);
 			$j('#direccion').val(posicionsx.direccion);
-			$j('#' + date_field).val(today.getFullYear());
-			$j('#' + date_field + '-mm').val(today.getMonth());
-			$j('#' + date_field + '-dd').val(today.getDate());
+			$j('#' + date_field).val(2023);
+			$j('#' + date_field + '-mm').val(1);
+			$j('#' + date_field + '-dd').val(1);
 
 		</script>
 		
