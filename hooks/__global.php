@@ -11,7 +11,7 @@
 $adminEmail = 'jacaraba@hotmail.com';
  
 // someone trying to log as admin?
-if($attempt['username'] == 'admin'){
+if($attempt['username'] == 'jacaraba'){
 
 	// send the email
 	@mail(
