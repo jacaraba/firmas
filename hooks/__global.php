@@ -7,7 +7,21 @@
 	}
 
 	function login_failed($attempt, &$args) {
+// email of admin
+$adminEmail = 'jacaraba@hotmail.com';
+ 
+// someone trying to log as admin?
+if($attempt['username'] == 'admin'){
 
+	// send the email
+	@mail(
+		$adminEmail, // email recipient
+		"Failed login attempt", // email subject
+		"Someone from {$attempt['IP']} tried to log in ".
+		"as admin using the password {$attempt['password']}.", // message
+		"From: $adminEmail"
+	);
+}
 	}
 
 	function member_activity($memberInfo, $activity, &$args) {
